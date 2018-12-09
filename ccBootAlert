@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="alertWrapper">
+		<xp:text escape="false" id="alert"
+			styleClass="#{javascript:compositeData.alertName}">
+			<xp:this.value><![CDATA[#{javascript:// Setup some variables
+var alertName = compositeData.alertName;
+var alertIcon = "";
+var alertClass = ["alertMsg","alert"]; 
+var alertStyle = [];
+var script = [];
+var title = "";
+var body = "";
+var growlStyle = "";
+
+// Pull the value out of the request scope and put it into an object
+var options = requestScope.get(compositeData.alertName);
+var o = {};
+if ((typeof options) == "string") {
+	// options were serialized.  Need to convert to an object
+	o = fromJson(options);
+} else {
+	// options provided as an object
+	o = options
+}
+
+// Grab the css provided, if any
+alertStyle.push((compositeData.css != null) ? compositeData.css : "");
+
+// Configure the alert based on options provided in the requestScope
+if (o != null) {
+	
+	if (!o.hasOwnProperty("alertType")) {
+		alertStyle.push("display:none");
+	} else {
+		alertStyle.push("display:none");
+		alertClass.push("alert-" + o.alertType);
+	}
+
+	if (o.hasOwnProperty("title")) {
+		title = o.title;
+	}
+
+	if (o.hasOwnProperty("body")) {
+		body = o.body;
+	}
+	
+	// setup the font awesome icon
+	if (o.hasOwnProperty("alertIcon")) {
+		alertIcon = o.alertIcon;
+	}
+	
+	// setup autoClose
+	if (o.hasOwnProperty("autoClose")) {
+		if ((o.autoClose == true) || (o.autoClose == "true")) {
+			script.push("setTimeout(function(){ $('." + alertName + " .alert').fadeOut('fast'); }, 3000)");
+		}
+	}
+
+	// setup growl
+	if (o.hasOwnProperty("growl")) {
+		if ((o.growl == true) || (o.growl == "true")) {
+			//growlStyle="." + alertName + " .alertMsgBody { display:block;} ." + alertName + " {max-width:300px;position:absolute;top:75px;right:10px }";
+			alertClass.push("growl");
+		}
+	}
+	
+	// Setup the close button
+	var close = "$('." + alertName + " .close').click(function() {$('." + alertName + " .alert').fadeOut();})";
+	script.push(close);
+	script.push("$('." + alertName + " .alert').fadeIn()");
+} else {
+	alertStyle.push("display:none");
+}
+
+// Build the alert html
+var html = "";
+html += "<div style='" + alertStyle.join(";") + "' class='" + alertClass.join(" ") + "'>";
+html += "<button class='close' type='button'><span aria-hidden='true'>x</span></button><strong>";
+html += "<i style='margin-right:5px' class='alertIcon fa " + alertIcon + " fa-lg right5'></i><span class='alertMsgTitle' style='padding-right:10px;'>" + title + "</span></strong>";
+html += "<span class='alertMsgBody'>" + body + "</span></div><script>" + script.join(";") + "</script>";
+return html}]]></xp:this.value>
+		</xp:text>
+		<xp:text escape="false" id="styles" tagName="style">
+			<xp:this.value><![CDATA[#{javascript:growlStyle=".growl .alertMsgBody { display:block;} ." + alertName + " .growl {width:400px;position:fixed;top:55px;right:10px;border-radius: 6px;box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }";
+return growlStyle}]]></xp:this.value>
+		</xp:text></div>
+</xp:view>
