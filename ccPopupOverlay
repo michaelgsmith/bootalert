@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+  <xp:panel styleClass="#{javascript:compositeData.styleClass;}"
+  	style="margin-top:100px;display:none">
+  	<xp:panel style="padding:50px" styleClass="well popupContainer">
+  	<i class="fa fa-refresh fa-spin fa-2x"
+  				style="margin-right:10px">
+  			</i>
+  		<xp:text escape="true" id="computedField1"
+  			style="font-weight:bold" styleClass="popupHtml">
+
+  			<xp:this.value><![CDATA[#{javascript:"Please wait..."}]]></xp:this.value>
+  			
+  		</xp:text>
+  		 
+  	</xp:panel>
+  </xp:panel>
+  <xp:scriptBlock>
+
+  	<xp:this.value><![CDATA[var styleClass = ".#{compositeData.styleClass}";
+$(document).ready(function() {
+
+  // Initialize the plugin
+  $(styleClass).popup({
+	  vertical:'top',
+	  color:'#666',
+	  escape:false,
+	  blur:false
+  });
+
+});]]></xp:this.value>
+  </xp:scriptBlock>
+</xp:view>
