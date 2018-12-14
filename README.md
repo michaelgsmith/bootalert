@@ -49,7 +49,7 @@ An alerting system for use in XPage applications that utilize Bootstrap & jQuery
   <tr>
     <td><code>alertIcon</code></td>
     <td>string</td>
-    <td>If FontAwesome is available of a resource, a FA icon class can be specified here.  FA sizing icons can be added as well.  For example <code>fa-check-circle-o fa-lg</code></td>
+    <td>If FontAwesome is available as a resource, a FA icon class can be specified here.  FA sizing icons can be added as well.  For example <code>fa-check-circle-o fa-lg</code></td>
   </tr>
   <tr>
     <td><code>growl</code></td>
