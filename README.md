@@ -33,42 +33,42 @@ An alerting system for use in XPage applications that utilize Bootstrap & jQuery
 <table>
   <tr>
     <td><code>title</code></td>
-    <td>text</td>
-    <td></td>
+    <td>string</td>
+    <td>Appears as bolded text.  Used to convey the alert summary.</td>
   </tr>
   <tr>
     <td><code>body</code></td>
-    <td>text</td>
-    <td></td>
+    <td>string</td>
+    <td>Appears as normal text.  Used to convey the alert detail.</td>
   </tr>
   <tr>
     <td><code>alertType</code></td>
-    <td>text</td>
-    <td></td>
+    <td>string</td>
+    <td>This value determines the color scheme of the alert based on the Bootstrap classes.  Valid values are <code>warning</code>, <code>danger</code>, <code>success</code>, <code>info</code>, and <code>default</code>.</td>
   </tr>
   <tr>
     <td><code>alertIcon</code></td>
-    <td>text</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>autoClose</code></td>
-    <td>boolean</td>
-    <td></td>
+    <td>string</td>
+    <td>If FontAwesome is available of a resource, a FA icon class can be specified here.  FA sizing icons can be added as well.  For example <code>fa-check-circle-o fa-lg</code></td>
   </tr>
   <tr>
     <td><code>growl</code></td>
     <td>boolean</td>
-    <td></td>
+    <td>If set to <code>true</code>, the alert will pop up in the right hand corner.</td>
   </tr>
+  <tr>
+    <td><code>autoClose</code></td>
+    <td>boolean</td>
+    <td>If set to <code>true</code>, the alert will auto hide after a specified amount of time.  Default is <code>false</code>.</td>
+  </tr> 
   <tr>
     <td><code>closeInterval</code></td>
     <td>number</td>
-    <td></td>
+    <td>Determines how long (in ms) an alert will be visible before auto closing.  Default is <code>3000</code> and <code>autoClose</code> must be set to <code>true</code>.</td>
   </tr>
   <tr>
     <td><code>clickToClose</code></td>
     <td>boolean</td>
-    <td></td>
+    <td>If set to <code>true</code>, then clicking any portion of the alert will close it.  If set to <code>false</code>, the alert can only be manually closed by clicking the x in the top right corner.  Defaults to <code>true</code></td>
   </tr>
  </table>
