@@ -1,4 +1,4 @@
-var jAlert = {
+var bootAlert = {
 		/*******************************************
 		 * Simple object to display multiple
 		 * types of alert messages
