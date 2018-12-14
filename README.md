@@ -29,8 +29,18 @@ An alerting system for use in XPage applications that utilize Bootstrap & jQuery
   </tr>
  </table>
 
-### Options
+### bootAlert.show(alert, o)
 <table>
+  <tr>
+    <td><b><code>alert</code></b></td>
+    <td><b>string</b></td>
+    <td><b>This value should be the classname used in the configuration of the ccBootAlert custom control</b></td>
+  </tr>
+  <tr>
+    <td><b><code>o</code></b></td>
+    <td><b>object</b></td>
+    <td>Can be configured with the following properties:</td>
+  </tr>
   <tr>
     <td><code>title</code></td>
     <td>string</td>
