@@ -1,5 +1,5 @@
 # bootalert
-An alerting system for use in XPage applications that utilize Bootstrap & jQuery.
+An alerting system for use in XPage applications that utilize Bootstrap & jQuery.  If your application uses FontAwesome then icons can be incorporated into the alerts.
 
 ## Getting Started
 
@@ -26,5 +26,49 @@ An alerting system for use in XPage applications that utilize Bootstrap & jQuery
   <tr>
     <td>ccPopupOverlay</td>
     <td>A custom control that provides an overlay for the screen to communicate to the user there is an action taking place.</td>
+  </tr>
+ </table>
+
+### Options
+<table>
+  <tr>
+    <td><code>title</code></td>
+    <td>text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>body</code></td>
+    <td>text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>alertType</code></td>
+    <td>text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>alertIcon</code></td>
+    <td>text</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>autoClose</code></td>
+    <td>boolean</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>growl</code></td>
+    <td>boolean</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>closeInterval</code></td>
+    <td>number</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>clickToClose</code></td>
+    <td>boolean</td>
+    <td></td>
   </tr>
  </table>
